@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Ultimate Focus Toolkit</title>
 
 <style>
 
+*{
+box-sizing:border-box;
+}
+
 body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
 margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
 background:#0f1117;
 color:white;
 }
 
-.hero{
+.header{
 text-align:center;
-padding:80px 20px;
+padding:70px 20px;
 background:linear-gradient(135deg,#0f1117,#1c2030);
 }
 
-.hero h1{
+.header h1{
 font-size:48px;
-margin-bottom:10px;
+margin:0 0 10px 0;
 }
 
-.hero p{
-opacity:0.7;
-font-size:18px;
+.header p{
+opacity:.7;
+margin:0;
 }
 
 .search{
@@ -47,23 +52,19 @@ outline:none;
 margin-top:25px;
 }
 
-.btn{
+.button{
 display:inline-block;
-padding:12px 20px;
+padding:12px 22px;
 margin:5px;
 border-radius:10px;
 background:#2d7ef7;
 color:white;
-text-decoration:none;
 font-weight:600;
 cursor:pointer;
+border:none;
 }
 
-.btn:hover{
-opacity:0.9;
-}
-
-.btn.share{
+.share{
 background:#444;
 }
 
@@ -72,6 +73,8 @@ padding:40px;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
+max-width:1100px;
+margin:auto;
 }
 
 .tool{
@@ -79,7 +82,7 @@ background:#1c2030;
 padding:25px;
 border-radius:12px;
 text-align:center;
-transition:0.2s;
+transition:.2s;
 cursor:pointer;
 }
 
@@ -89,8 +92,8 @@ background:#252a3f;
 }
 
 .tool a{
-text-decoration:none;
 color:white;
+text-decoration:none;
 font-size:18px;
 display:block;
 }
@@ -98,8 +101,7 @@ display:block;
 .footer{
 text-align:center;
 padding:40px;
-opacity:0.5;
-font-size:14px;
+opacity:.4;
 }
 
 </style>
@@ -108,33 +110,32 @@ font-size:14px;
 
 <body>
 
-<div class="hero">
+<div class="header">
 
 <h1>Ultimate Focus Toolkit</h1>
 
 <p>ADHD tools for focus, productivity and dopamine</p>
 
-<input 
-class="search" 
-id="search" 
-placeholder="Search tools..." 
+<input
+class="search"
+id="search"
+placeholder="Search tools..."
 onkeyup="filterTools()"
->
+/>
 
 <div class="buttons">
 
-<button class="btn" onclick="downloadToolkit()">
+<button class="button" onclick="downloadToolkit()">
 Download Toolkit
 </button>
 
-<button class="btn share" onclick="shareToolkit()">
+<button class="button share" onclick="shareToolkit()">
 Share
 </button>
 
 </div>
 
 </div>
-
 
 <div class="tools" id="tools">
 
@@ -189,20 +190,21 @@ Ultimate Focus Toolkit
 function filterTools(){
 
 let input=document.getElementById("search").value.toLowerCase()
-let tools=document.getElementsByClassName("tool")
 
-for(let i=0;i<tools.length;i++){
+let tools=document.querySelectorAll(".tool")
 
-let text=tools[i].innerText.toLowerCase()
+tools.forEach(function(tool){
+
+let text=tool.innerText.toLowerCase()
 
 if(text.includes(input)){
-tools[i].style.display="block"
+tool.style.display="block"
 }
 else{
-tools[i].style.display="none"
+tool.style.display="none"
 }
 
-}
+})
 
 }
 
@@ -219,6 +221,7 @@ url:window.location.href
 }else{
 
 navigator.clipboard.writeText(window.location.href)
+
 alert("Link copied to clipboard")
 
 }
@@ -227,11 +230,12 @@ alert("Link copied to clipboard")
 
 function downloadToolkit(){
 
-alert("Download bundle coming soon!")
+window.location.href="toolkit.zip"
 
 }
 
 </script>
 
 </body>
+
 </html>
