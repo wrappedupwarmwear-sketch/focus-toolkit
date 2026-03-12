@@ -4,7 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Ultimate Focus Toolkit</title>
 
@@ -19,7 +19,7 @@ box-sizing:border-box;
 
 body{
 margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
 background:#0f1117;
 color:white;
 }
@@ -27,23 +27,22 @@ color:white;
 .header{
 text-align:center;
 padding:70px 20px;
-background:linear-gradient(135deg,#0f1117,#1c2030);
+background:linear-gradient(135deg,#0f1117,#1b1f2e);
 }
 
 .header h1{
 font-size:48px;
-margin:0 0 10px 0;
+margin-bottom:10px;
 }
 
 .header p{
 opacity:.7;
-margin:0;
 }
 
 .search{
 margin-top:25px;
 padding:14px;
-width:340px;
+width:350px;
 max-width:90%;
 border-radius:10px;
 border:none;
@@ -56,15 +55,15 @@ margin-top:25px;
 }
 
 .button{
-display:inline-block;
 padding:12px 22px;
 margin:5px;
+border:none;
 border-radius:10px;
 background:#2d7ef7;
 color:white;
 font-weight:600;
 cursor:pointer;
-border:none;
+font-size:15px;
 }
 
 .share{
@@ -91,7 +90,7 @@ cursor:pointer;
 
 .tool:hover{
 transform:scale(1.05);
-background:#252a3f;
+background:#262b42;
 }
 
 .tool a{
@@ -104,7 +103,7 @@ display:block;
 .footer{
 text-align:center;
 padding:40px;
-opacity:.4;
+opacity:.5;
 }
 
 </style>
@@ -117,7 +116,7 @@ opacity:.4;
 
 <h1>Ultimate Focus Toolkit</h1>
 
-<p>ADHD tools for focus, productivity and dopamine</p>
+<p>ADHD tools for focus and productivity</p>
 
 <input
 class="search"
@@ -142,52 +141,75 @@ Share
 
 </div>
 
+
 <div class="tools" id="tools">
 
 <div class="tool">
-<a href="tools/dopamine-wheel/index.html">🎡 Dopamine Wheel</a>
+<a href="tools/dopamine-wheel/index.html">
+🎡 Dopamine Wheel
+</a>
 </div>
 
 <div class="tool">
-<a href="tools/adhd-dashboard/index.html">🧠 ADHD Dashboard</a>
+<a href="tools/adhd-dashboard/index.html">
+🧠 ADHD Dashboard
+</a>
 </div>
 
 <div class="tool">
-<a href="tools/habit-tracker/index.html">📅 Habit Tracker</a>
+<a href="tools/habit-tracker/index.html">
+📅 Habit Tracker
+</a>
 </div>
 
 <div class="tool">
-<a href="tools/task-picker/index.html">🎲 Task Picker</a>
+<a href="tools/task-picker/index.html">
+🎲 Task Picker
+</a>
 </div>
 
 <div class="tool">
-<a href="tools/password-generator/index.html">🔑 Password Generator</a>
+<a href="tools/password-generator/index.html">
+🔑 Password Generator
+</a>
 </div>
 
 <div class="tool">
-<a href="tools/ai-promt-generator/index.html">🤖 AI Prompt Generator</a>
+<a href="tools/ai-promt-generator/index.html">
+🤖 AI Prompt Generator
+</a>
 </div>
 
 <div class="tool">
-<a href="tools/coding-prompt-generator/index.html">💻 Coding Prompt Generator</a>
+<a href="tools/coding-prompt-generator/index.html">
+💻 Coding Prompt Generator
+</a>
 </div>
 
 <div class="tool">
-<a href="tools/business-prompt-generator/index.html">📈 Business Prompt Generator</a>
+<a href="tools/business-prompt-generator/index.html">
+📈 Business Prompt Generator
+</a>
 </div>
 
 <div class="tool">
-<a href="tools/writing-prompt-generator/index.html">✍️ Writing Prompt Generator</a>
+<a href="tools/writing-prompt-generator/index.html">
+✍️ Writing Prompt Generator
+</a>
 </div>
 
 <div class="tool">
-<a href="tools/youtube-prompt-generator/index.html">📺 YouTube Prompt Generator</a>
+<a href="tools/youtube-prompt-generator/index.html">
+📺 YouTube Prompt Generator
+</a>
 </div>
 
 </div>
 
 <div class="footer">
+
 Ultimate Focus Toolkit
+
 </div>
 
 <script>
@@ -212,6 +234,7 @@ tool.style.display="none"
 
 }
 
+
 function shareToolkit(){
 
 if(navigator.share){
@@ -225,14 +248,18 @@ url:window.location.href
 }else{
 
 navigator.clipboard.writeText(window.location.href)
+
 alert("Link copied to clipboard")
 
 }
 
 }
 
+
 if("serviceWorker" in navigator){
+
 navigator.serviceWorker.register("service-worker.js")
+
 }
 
 </script>
