@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>ADHD Dopamine Dashboard</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6ff;
+text-align:center;
+padding:40px;
+}
+
+h1{
+color:#333;
+}
+
+input{
+padding:10px;
+width:200px;
+}
+
+button{
+padding:10px;
+background:#4CAF50;
+border:none;
+color:white;
+border-radius:5px;
+cursor:pointer;
+margin-left:5px;
+}
+
+ul{
+list-style:none;
+padding:0;
+}
+
+li{
+background:white;
+margin:10px;
+padding:10px;
+border-radius:6px;
+}
+
+.xp{
+font-size:22px;
+color:#ff9800;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>ADHD Dopamine Dashboard</h1>
+
+<input id="taskInput" placeholder="Enter task">
+<button onclick="addTask()">Add Task</button>
+
+<ul id="taskList"></ul>
+
+<div class="xp">
+XP: <span id="xp">0</span>
+</div>
+
+<script>
+
+let xp = 0;
+
+function addTask(){
+
+let task = document.getElementById("taskInput").value;
+
+if(task === "") return;
+
+let li = document.createElement("li");
+
+li.innerHTML = task + " <button onclick='completeTask(this)'>Done</button>";
+
+document.getElementById("taskList").appendChild(li);
+
+document.getElementById("taskInput").value="";
+
+}
+
+function completeTask(btn){
+
+btn.parentElement.remove();
+
+xp += 10;
+
+document.getElementById("xp").innerText = xp;
+
+confetti();
+
+}
+
+function confetti(){
+
+for(let i=0;i<30;i++){
+
+let div = document.createElement("div");
+
+div.style.position="fixed";
+div.style.left=Math.random()*100+"vw";
+div.style.top="-10px";
+div.style.width="8px";
+div.style.height="8px";
+div.style.background="hsl("+Math.random()*360+"deg,100%,50%)";
+
+document.body.appendChild(div);
+
+let fall=setInterval(()=>{
+
+div.style.top=parseInt(div.style.top)+5+"px";
+
+if(parseInt(div.style.top)>window.innerHeight){
+
+clearInterval(fall);
+div.remove();
+
+}
+
+},20);
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

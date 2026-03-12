@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Business Prompt Generator</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6ff;
+text-align:center;
+padding:60px;
+}
+
+h1{
+font-size:36px;
+}
+
+#prompt{
+font-size:20px;
+margin:40px;
+background:white;
+padding:20px;
+border-radius:8px;
+max-width:600px;
+display:inline-block;
+}
+
+button{
+padding:12px 20px;
+background:#4CAF50;
+border:none;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Business AI Prompt Generator</h1>
+
+<div id="prompt">
+Click generate to get a business prompt
+</div>
+
+<br>
+
+<button onclick="generatePrompt()">Generate Prompt</button>
+
+<script>
+
+const prompts = [
+
+"Generate 10 profitable online business ideas for 2026.",
+
+"Create a step-by-step plan to launch a startup with no funding.",
+
+"Write a marketing strategy for a new productivity app.",
+
+"Generate 10 creative product ideas for an ecommerce store.",
+
+"Write a detailed business plan for a SaaS startup.",
+
+"Create a content marketing strategy for a small business.",
+
+"Generate 10 ways to make money using AI tools.",
+
+"Write a social media growth strategy for a new brand.",
+
+"Generate 10 niche ideas for profitable digital products.",
+
+"Create a 90-day business growth plan."
+
+];
+
+function generatePrompt(){
+
+let prompt = prompts[Math.floor(Math.random()*prompts.length)];
+
+document.getElementById("prompt").innerText = prompt;
+
+}
+
+</script>
+
+</body>
+
+</html>

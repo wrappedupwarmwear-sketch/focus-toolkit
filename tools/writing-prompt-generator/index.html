@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Writing Prompt Generator</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6ff;
+text-align:center;
+padding:60px;
+}
+
+h1{
+font-size:36px;
+}
+
+#prompt{
+font-size:20px;
+margin:40px;
+background:white;
+padding:20px;
+border-radius:8px;
+max-width:600px;
+display:inline-block;
+}
+
+button{
+padding:12px 20px;
+background:#4CAF50;
+border:none;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>AI Writing Prompt Generator</h1>
+
+<div id="prompt">
+Click generate to get a writing prompt
+</div>
+
+<br>
+
+<button onclick="generatePrompt()">Generate Prompt</button>
+
+<script>
+
+const prompts = [
+
+"Write a blog post explaining a complex topic in simple terms.",
+
+"Create a short story about a character who discovers a hidden ability.",
+
+"Write an article about how AI will change everyday life.",
+
+"Create a motivational speech for someone chasing their dreams.",
+
+"Write a fictional story set in a futuristic city.",
+
+"Generate 10 blog post ideas about productivity.",
+
+"Write a story about a mysterious message that changes someone's life.",
+
+"Create a compelling introduction for a self-help book.",
+
+"Write an article about the benefits of deep focus and reducing distractions.",
+
+"Create a creative story about time travel."
+
+];
+
+function generatePrompt(){
+
+let prompt = prompts[Math.floor(Math.random()*prompts.length)];
+
+document.getElementById("prompt").innerText = prompt;
+
+}
+
+</script>
+
+</body>
+
+</html>s

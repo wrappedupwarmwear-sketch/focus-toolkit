@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Prompt Generator</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6ff;
+text-align:center;
+padding:60px;
+}
+
+h1{
+font-size:36px;
+}
+
+#prompt{
+font-size:20px;
+margin:40px;
+background:white;
+padding:20px;
+border-radius:8px;
+display:inline-block;
+max-width:600px;
+}
+
+button{
+padding:12px 20px;
+background:#4CAF50;
+border:none;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>AI Prompt Generator</h1>
+
+<div id="prompt">
+Click generate to get an AI prompt
+</div>
+
+<br>
+
+<button onclick="generatePrompt()">Generate Prompt</button>
+
+<script>
+
+const prompts = [
+
+"Write a detailed blog post about the future of artificial intelligence.",
+
+"Generate 10 creative startup ideas in the health technology industry.",
+
+"Explain a complex concept like blockchain in simple terms for beginners.",
+
+"Write a motivational speech for entrepreneurs starting their first business.",
+
+"Create a 30-day productivity plan for someone with ADHD.",
+
+"Generate 10 unique game ideas for indie developers.",
+
+"Write a YouTube video script about how AI is changing the workplace.",
+
+"Create a step-by-step plan to build a successful side hustle online.",
+
+"Generate a creative fantasy story idea with unique characters.",
+
+"Write a list of 20 useful prompts for using ChatGPT in daily life."
+
+];
+
+function generatePrompt(){
+
+let prompt = prompts[Math.floor(Math.random()*prompts.length)];
+
+document.getElementById("prompt").innerText = prompt;
+
+}
+
+</script>
+
+</body>
+
+</html>
