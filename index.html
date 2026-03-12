@@ -128,9 +128,11 @@ onkeyup="filterTools()"
 
 <div class="buttons">
 
-<button class="button" onclick="downloadToolkit()">
+<a href="https://github.com/wrappedupwarmwear-sketch/focus-toolkit/archive/refs/heads/main.zip" target="_blank">
+<button class="button">
 Download Toolkit
 </button>
+</a>
 
 <button class="button share" onclick="shareToolkit()">
 Share
@@ -223,16 +225,9 @@ url:window.location.href
 }else{
 
 navigator.clipboard.writeText(window.location.href)
-
 alert("Link copied to clipboard")
 
 }
-
-}
-
-function downloadToolkit(){
-
-window.location.href="https://github.com/wrappedupwarmwear-sketch/focus-toolkit/archive/refs/heads/main.zip"
 
 }
 
