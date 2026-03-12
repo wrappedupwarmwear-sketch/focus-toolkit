@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Coding Prompt Generator</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6ff;
+text-align:center;
+padding:60px;
+}
+
+h1{
+font-size:36px;
+}
+
+#prompt{
+font-size:20px;
+margin:40px;
+background:white;
+padding:20px;
+border-radius:8px;
+max-width:600px;
+display:inline-block;
+}
+
+button{
+padding:12px 20px;
+background:#4CAF50;
+border:none;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>AI Coding Prompt Generator</h1>
+
+<div id="prompt">
+Click generate to get a coding prompt
+</div>
+
+<br>
+
+<button onclick="generatePrompt()">Generate Prompt</button>
+
+<script>
+
+const prompts = [
+
+"Explain how this piece of code works step by step.",
+
+"Help debug this code and explain what is wrong.",
+
+"Write a beginner friendly tutorial for learning JavaScript.",
+
+"Refactor this code to make it cleaner and more efficient.",
+
+"Generate a small web app idea and explain how to build it.",
+
+"Explain the difference between two programming concepts in simple terms.",
+
+"Create a step-by-step plan to learn programming from scratch.",
+
+"Write a simple example project using HTML, CSS and JavaScript.",
+
+"Optimize this code for better performance.",
+
+"Generate coding exercises for someone learning programming."
+
+];
+
+function generatePrompt(){
+
+let prompt = prompts[Math.floor(Math.random()*prompts.length)];
+
+document.getElementById("prompt").innerText = prompt;
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Random Task Picker</title>
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+background:#f5f6ff;
+padding:60px;
+}
+
+input{
+padding:10px;
+width:200px;
+}
+
+button{
+padding:10px;
+background:#4CAF50;
+border:none;
+color:white;
+border-radius:6px;
+cursor:pointer;
+margin:5px;
+}
+
+#result{
+margin:30px;
+font-size:24px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Random Task Picker</h1>
+
+<input id="taskInput" placeholder="Add task">
+<button onclick="addTask()">Add</button>
+
+<br><br>
+
+<button onclick="pickTask()">Pick Task</button>
+
+<div id="result"></div>
+
+<script>
+
+let tasks = [];
+
+function addTask(){
+
+let task = document.getElementById("taskInput").value;
+
+if(task==="") return;
+
+tasks.push(task);
+
+document.getElementById("taskInput").value="";
+
+}
+
+function pickTask(){
+
+if(tasks.length===0){
+document.getElementById("result").innerText="Add tasks first";
+return;
+}
+
+let task = tasks[Math.floor(Math.random()*tasks.length)];
+
+document.getElementById("result").innerText="Do this task: " + task;
+
+}
+
+</script>
+
+</body>
+
+</html>
