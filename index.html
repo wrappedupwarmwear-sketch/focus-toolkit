@@ -1,39 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
-<title>Ultimate Focus Toolkit</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ultimate Focus Toolkit</title>
 
 <style>
 
 body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
 margin:0;
-background:#1f2430;
+background:#0f1117;
 color:white;
 }
 
-.header{
-padding:60px 20px;
+.hero{
 text-align:center;
-background:linear-gradient(135deg,#1f2430,#2d3448);
+padding:80px 20px;
+background:linear-gradient(135deg,#0f1117,#1c2030);
 }
 
-.header h1{
-font-size:42px;
+.hero h1{
+font-size:48px;
 margin-bottom:10px;
 }
 
+.hero p{
+opacity:0.7;
+font-size:18px;
+}
+
 .search{
-width:320px;
+margin-top:25px;
+padding:14px;
+width:340px;
 max-width:90%;
-padding:12px;
-border-radius:8px;
+border-radius:10px;
 border:none;
-margin-top:20px;
 font-size:16px;
+outline:none;
+}
+
+.buttons{
+margin-top:25px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 20px;
+margin:5px;
+border-radius:10px;
+background:#2d7ef7;
+color:white;
+text-decoration:none;
+font-weight:600;
+cursor:pointer;
+}
+
+.btn:hover{
+opacity:0.9;
+}
+
+.btn.share{
+background:#444;
 }
 
 .tools{
@@ -44,8 +75,8 @@ gap:20px;
 }
 
 .tool{
-background:#2d3448;
-padding:20px;
+background:#1c2030;
+padding:25px;
 border-radius:12px;
 text-align:center;
 transition:0.2s;
@@ -54,7 +85,7 @@ cursor:pointer;
 
 .tool:hover{
 transform:scale(1.05);
-background:#39415a;
+background:#252a3f;
 }
 
 .tool a{
@@ -64,20 +95,46 @@ font-size:18px;
 display:block;
 }
 
+.footer{
+text-align:center;
+padding:40px;
+opacity:0.5;
+font-size:14px;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<div class="header">
+<div class="hero">
 
 <h1>Ultimate Focus Toolkit</h1>
-<p>ADHD Productivity Tools</p>
 
-<input class="search" placeholder="Search tools..." onkeyup="searchTools(this.value)">
+<p>ADHD tools for focus, productivity and dopamine</p>
+
+<input 
+class="search" 
+id="search" 
+placeholder="Search tools..." 
+onkeyup="filterTools()"
+>
+
+<div class="buttons">
+
+<button class="btn" onclick="downloadToolkit()">
+Download Toolkit
+</button>
+
+<button class="btn share" onclick="shareToolkit()">
+Share
+</button>
 
 </div>
+
+</div>
+
 
 <div class="tools" id="tools">
 
@@ -123,18 +180,22 @@ display:block;
 
 </div>
 
+<div class="footer">
+Ultimate Focus Toolkit
+</div>
+
 <script>
 
-function searchTools(input){
+function filterTools(){
 
-let filter=input.toLowerCase()
+let input=document.getElementById("search").value.toLowerCase()
 let tools=document.getElementsByClassName("tool")
 
 for(let i=0;i<tools.length;i++){
 
 let text=tools[i].innerText.toLowerCase()
 
-if(text.includes(filter)){
+if(text.includes(input)){
 tools[i].style.display="block"
 }
 else{
@@ -142,6 +203,31 @@ tools[i].style.display="none"
 }
 
 }
+
+}
+
+function shareToolkit(){
+
+if(navigator.share){
+
+navigator.share({
+title:"Ultimate Focus Toolkit",
+text:"Check out this ADHD Focus Toolkit",
+url:window.location.href
+})
+
+}else{
+
+navigator.clipboard.writeText(window.location.href)
+alert("Link copied to clipboard")
+
+}
+
+}
+
+function downloadToolkit(){
+
+alert("Download bundle coming soon!")
 
 }
 
