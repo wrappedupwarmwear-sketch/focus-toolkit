@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Ultimate Focus Toolkit</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
@@ -15,64 +13,55 @@ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
 margin:0;
 background:#1f2430;
 color:white;
-text-align:center;
 }
 
 .header{
 padding:60px 20px;
+text-align:center;
 background:linear-gradient(135deg,#1f2430,#2d3448);
 }
 
-h1{
-margin:0;
+.header h1{
 font-size:42px;
+margin-bottom:10px;
 }
 
-.subtitle{
-margin-top:10px;
-opacity:0.8;
-}
-
-.section{
-margin-top:50px;
+.search{
+width:320px;
+max-width:90%;
+padding:12px;
+border-radius:8px;
+border:none;
+margin-top:20px;
+font-size:16px;
 }
 
 .tools{
+padding:40px;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
-padding:30px;
-max-width:1000px;
-margin:auto;
 }
 
 .tool{
-display:block;
 background:#2d3448;
 padding:20px;
 border-radius:12px;
-text-decoration:none;
-color:white;
-font-size:18px;
+text-align:center;
 transition:0.2s;
+cursor:pointer;
 }
 
 .tool:hover{
-background:#3d4660;
-transform:translateY(-3px);
+transform:scale(1.05);
+background:#39415a;
 }
 
-.download{
-margin:40px;
-}
-
-.download a{
-background:#4CAF50;
-padding:15px 25px;
-border-radius:10px;
-color:white;
+.tool a{
 text-decoration:none;
+color:white;
 font-size:18px;
+display:block;
 }
 
 </style>
@@ -84,69 +73,79 @@ font-size:18px;
 <div class="header">
 
 <h1>Ultimate Focus Toolkit</h1>
-<div class="subtitle">ADHD Tools • AI Prompt Generators • Productivity Utilities</div>
+<p>ADHD Productivity Tools</p>
+
+<input class="search" placeholder="Search tools..." onkeyup="searchTools(this.value)">
 
 </div>
 
+<div class="tools" id="tools">
 
-<div class="section">
-
-<h2>🧠 ADHD Tools</h2>
-
-<div class="tools">
-
-<a class="tool" href="tools/adhd-dashboard/index.html">ADHD Dashboard</a>
-
-<a class="tool" href="tools/habit-tracker/index.html">Habit Tracker</a>
-
-<a class="tool" href="tools/task-picker/index.html">Task Picker</a>
-
-<a class="tool" href="tools/dopamine-wheel/index.html">🎡 Dopamine Reward Wheel</a>
-
+<div class="tool">
+<a href="tools/dopamine-wheel/index.html">🎡 Dopamine Wheel</a>
 </div>
 
+<div class="tool">
+<a href="tools/adhd-dashboard/index.html">🧠 ADHD Dashboard</a>
 </div>
 
-
-<div class="section">
-
-<h2>🤖 AI Prompt Tools</h2>
-
-<div class="tools">
-
-<a class="tool" href="tools/ai-prompts-generator/index.html">AI Prompt Generator</a>
-
-<a class="tool" href="tools/business-prompt-generator/index.html">Business Prompt Generator</a>
-
-<a class="tool" href="tools/coding-prompt-generator/index.html">Coding Prompt Generator</a>
-
-<a class="tool" href="tools/writing-prompt-generator/index.html">Writing Prompt Generator</a>
-
-<a class="tool" href="tools/youtube-prompt-generator/index.html">YouTube Prompt Generator</a>
-
+<div class="tool">
+<a href="tools/habit-tracker/index.html">📅 Habit Tracker</a>
 </div>
 
+<div class="tool">
+<a href="tools/task-picker/index.html">🎲 Task Picker</a>
 </div>
 
+<div class="tool">
+<a href="tools/password-generator/index.html">🔑 Password Generator</a>
+</div>
 
-<div class="section">
+<div class="tool">
+<a href="tools/ai-promt-generator/index.html">🤖 AI Prompt Generator</a>
+</div>
 
-<h2>⚙️ Utility Tools</h2>
+<div class="tool">
+<a href="tools/coding-prompt-generator/index.html">💻 Coding Prompt Generator</a>
+</div>
 
-<div class="tools">
+<div class="tool">
+<a href="tools/business-prompt-generator/index.html">📈 Business Prompt Generator</a>
+</div>
 
-<a class="tool" href="tools/password-generator/index.html">Password Generator</a>
+<div class="tool">
+<a href="tools/writing-prompt-generator/index.html">✍️ Writing Prompt Generator</a>
+</div>
 
+<div class="tool">
+<a href="tools/youtube-prompt-generator/index.html">📺 YouTube Prompt Generator</a>
 </div>
 
 </div>
 
+<script>
 
-<div class="download">
+function searchTools(input){
 
-<a href="#">Download Toolkit</a>
+let filter=input.toLowerCase()
+let tools=document.getElementsByClassName("tool")
 
-</div>
+for(let i=0;i<tools.length;i++){
+
+let text=tools[i].innerText.toLowerCase()
+
+if(text.includes(filter)){
+tools[i].style.display="block"
+}
+else{
+tools[i].style.display="none"
+}
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
